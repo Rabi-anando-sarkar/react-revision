@@ -25,11 +25,11 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId
+                    userId,
                 }
             )
         } catch (error) {
-            console.log("Appwrite service :: createPost :: error", error);
+            console.log("Appwrite serive :: createPost :: error", error);
         }
     }
 
@@ -93,16 +93,15 @@ export class Service{
 
     // file upload method/service
 
-    async uploadFile(file,ID) {
+    async uploadFile(file){
         try {
             return await this.bucket.createFile(
                 conf.appwriteBucketId,
                 ID.unique(),
                 file
-                
             )
         } catch (error) {
-            console.log("Appwrite service :: uploadFile :: error", error);
+            console.log("Appwrite serive :: uploadFile :: error", error);
             return false
         }
     }
